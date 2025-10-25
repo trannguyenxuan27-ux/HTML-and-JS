@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3: Ẩn/Hiện Nội Dung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        /* CSS ban đầu: ẨN đoạn văn bản chi tiết */
+        #chiTiet {
+            display: none; /* Lệnh CSS cốt lõi để ẩn phần tử */
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bài 3: Ẩn/Hiện nội dung</h1>
+
+    <button onclick="toggleContent()" id="toggleButton">Xem chi tiết</button>
+
+    <p id="chiTiet">Đây là nội dung chi tiết về Javascript. Javascript là một ngôn ngữ lập trình làm cho trang web trở nên tương tác.</p>
+
+    <script>
+        // -----------------------------------------------------
+        // PHẦN JAVASCRIPT
+        // -----------------------------------------------------
+
+        function toggleContent() {
+            // 1. Lấy cả phần tử nội dung và nút bấm
+            let content = document.getElementById("chiTiet");
+            let button = document.getElementById("toggleButton");
+            
+            // 2. Kiểm tra trạng thái hiện tại của phần tử nội dung
+            if (content.style.display === 'none') {
+                // Nếu đang ẩn (display: none), thì hiện nó ra
+                content.style.display = 'block';
+                // Đổi chữ trên nút
+                button.innerHTML = 'Ẩn chi tiết';
+            } else {
+                // Nếu đang hiện, thì ẩn nó đi
+                content.style.display = 'none';
+                // Đổi chữ trên nút
+                button.innerHTML = 'Xem chi tiết';
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4: Máy Tính Đơn Giản</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        /* CSS để căn chỉnh các ô nhập */
+        label, input, button {
+            display: block; /* Đặt mỗi phần tử trên một dòng */
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bài 4: Máy tính đơn giản</h1>
+
+    <label for="soA">Số A:</label>
+    <input type="number" id="soA" placeholder="Nhập số thứ nhất">
+
+    <label for="soB">Số B:</label>
+    <input type="number" id="soB" placeholder="Nhập số thứ hai">
+
+    <button onclick="tinhTong()">Tính tổng</button>
+
+    <p id="ketQua">Kết quả sẽ hiển thị ở đây.</p>
+
+    <script>
+        // -----------------------------------------------------
+        // PHẦN JAVASCRIPT
+        // -----------------------------------------------------
+
+        function tinhTong() {
+            // 1. Lấy giá trị từ ô nhập (LƯU Ý: giá trị luôn là chuỗi)
+            let giaTriA = document.getElementById("soA").value;
+            let giaTriB = document.getElementById("soB").value;
+
+            // 2. Chuyển đổi chuỗi thành số nguyên (phép tính chỉ hoạt động với số)
+            // Cần dùng parseFloat() hoặc parseInt() để chuyển đổi.
+            let soA = parseFloat(giaTriA);
+            let soB = parseFloat(giaTriB);
+            
+            // *QUAN TRỌNG: Kiểm tra xem người dùng có nhập số hợp lệ không
+            if (isNaN(soA) || isNaN(soB)) {
+                document.getElementById("ketQua").innerHTML = "Vui lòng nhập cả hai số hợp lệ.";
+                return; // Dừng hàm nếu không phải là số
+            }
+
+            // 3. Thực hiện phép tính
+            let tong = soA + soB;
+
+            // 4. Hiển thị kết quả ra thẻ <p>
+            document.getElementById("ketQua").innerHTML = "Tổng của " + soA + " và " + soB + " là: " + tong;
+        }
+    </script>
+
+</body>
+</html>

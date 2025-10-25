@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6: Form Đăng Ký Đơn Giản</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        form input[type="text"], 
+        form input[type="password"] {
+            display: block;
+            width: 200px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bài 6: Form Đăng ký đơn giản</h1>
+
+    <form name="registrationForm" onsubmit="return validateRegistration()" action="#">
+        
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" name="username">
+
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" name="password">
+
+        <label for="confirmPassword">Nhập lại mật khẩu:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword">
+
+        <input type="submit" value="Đăng ký">
+    </form>
+
+    <script>
+        // -----------------------------------------------------
+        // PHẦN JAVASCRIPT
+        // -----------------------------------------------------
+
+        function validateRegistration() {
+            // Lấy giá trị của các trường
+            let username = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+            // 1. KIỂM TRA ĐIỀU KIỆN KHÔNG ĐƯỢC ĐỂ TRỐNG
+            if (username === "" || password === "" || confirmPassword === "") {
+                alert("Lỗi: Tất cả các trường (Tên đăng nhập, Mật khẩu) không được để trống!");
+                return false; // Ngăn form gửi đi
+            }
+
+            // 2. KIỂM TRA ĐIỀU KIỆN MẬT KHẨU PHẢI KHỚP
+            if (password !== confirmPassword) {
+                alert("Lỗi: Mật khẩu và Nhập lại mật khẩu không khớp!");
+                return false; // Ngăn form gửi đi
+            }
+
+            // 3. Nếu mọi thứ đều Hợp lệ
+            alert("Đăng ký thành công!");
+            return true; // Cho phép form gửi dữ liệu (Nếu action="#" thì sẽ tải lại trang)
+        }
+    </script>
+
+</body>
+</html>

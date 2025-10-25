@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8: Đồng hồ kỹ thuật số</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        #clock {
+            font-size: 4em; /* Kích thước chữ lớn */
+            color: #333;
+            border: 2px solid #ccc;
+            padding: 20px;
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bài 8: Đồng hồ kỹ thuật số</h1>
+
+    <div id="clock"></div>
+
+    <script>
+        // Hàm chính để cập nhật thời gian
+        function updateClock() {
+            // 1. Lệnh Gợi ý: Tạo đối tượng Date mới để lấy thời gian hiện tại
+            const now = new Date(); 
+            
+            // 2. Lấy Giờ, Phút, Giây
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
+            // 3. Định dạng thời gian (thêm số 0 ở đầu nếu nhỏ hơn 10)
+            hours = String(hours).padStart(2, '0');
+            minutes = String(minutes).padStart(2, '0');
+            seconds = String(seconds).padStart(2, '0');
+            
+            // 4. Định dạng chuỗi hiển thị
+            const timeString = `${hours}:${minutes}:${seconds}`;
+
+            // 5. Hiển thị lên trang web
+            document.getElementById('clock').innerHTML = timeString;
+        }
+
+        // 6. Lệnh Gợi ý: Chạy hàm updateClock ngay lập tức
+        updateClock(); 
+
+        // 7. Lệnh Gợi ý: Lặp lại hàm updateClock mỗi 1000 mili giây (1 giây)
+        setInterval(updateClock, 1000); 
+        // Lệnh này đảm bảo đồng hồ tự động cập nhật mà không cần tải lại trang
+    </script>
+
+</body>
+</html>

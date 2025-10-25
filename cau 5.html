@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5: Bật/Tắt Đèn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center; /* Căn giữa nội dung */
+        }
+        #bulb {
+            width: 150px; /* Thiết lập kích thước cho ảnh */
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bài 5: Bật/Tắt đèn</h1>
+
+    <img id="bulb" 
+         src="https://www.w3schools.com/js/pic_bulboff.gif" 
+         alt="Bóng đèn đang tắt">
+
+    <button onclick="batDen()">Bật đèn</button>
+
+    <button onclick="tatDen()">Tắt đèn</button>
+
+    <script>
+        // Các đường dẫn ảnh
+        const LINK_DEN_BAT = "https://www.w3schools.com/js/pic_bulbon.gif";
+        const LINK_DEN_TAT = "https://www.w3schools.com/js/pic_bulboff.gif";
+
+        // -----------------------------------------------------
+        // PHẦN JAVASCRIPT
+        // -----------------------------------------------------
+
+        // Hàm Bật đèn
+        function batDen() {
+            // Lệnh: Lấy phần tử ảnh bằng ID
+            let bongDen = document.getElementById("bulb");
+            
+            // Lệnh: Thay đổi thuộc tính 'src' của ảnh sang link Bật đèn
+            bongDen.src = LINK_DEN_BAT;
+            
+            // Tùy chọn: Thay đổi thuộc tính 'alt'
+            bongDen.alt = "Bóng đèn đang bật";
+        }
+        
+        // Hàm Tắt đèn
+        function tatDen() {
+            // Lệnh: Lấy phần tử ảnh bằng ID
+            let bongDen = document.getElementById("bulb");
+            
+            // Lệnh: Thay đổi thuộc tính 'src' của ảnh sang link Tắt đèn
+            bongDen.src = LINK_DEN_TAT;
+            
+            // Tùy chọn: Thay đổi thuộc tính 'alt'
+            bongDen.alt = "Bóng đèn đang tắt";
+        }
+    </script>
+
+</body>
+</html>

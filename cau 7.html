@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7: Tính chỉ số BMI</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        input { margin-bottom: 10px; display: block; width: 200px; padding: 5px; }
+        button { margin-bottom: 15px; padding: 8px 15px; }
+        #ketQuaBMI { 
+            font-size: 1.1em; 
+            font-weight: bold; 
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bài 7: Tính chỉ số BMI</h1>
+
+    <label for="chieuCao">Chiều cao (cm):</label>
+    <input type="number" id="chieuCao" placeholder="Ví dụ: 170">
+
+    <label for="canNang">Cân nặng (kg):</label>
+    <input type="number" id="canNang" placeholder="Ví dụ: 65">
+
+    <button onclick="tinhBMI()">Tính chỉ số BMI</button>
+
+    <p id="ketQuaBMI">Nhập thông tin để tính BMI.</p>
+
+    <script>
+        function tinhBMI() {
+            // 1. Lấy và chuyển đổi giá trị
+            let chieuCao_cm = parseFloat(document.getElementById("chieuCao").value);
+            let canNang_kg = parseFloat(document.getElementById("canNang").value);
+            let ketQuaElement = document.getElementById("ketQuaBMI");
+            let phanLoai = "";
+            let thongBao = "";
+
+            // Kiểm tra dữ liệu hợp lệ
+            if (isNaN(chieuCao_cm) || isNaN(canNang_kg) || chieuCao_cm <= 0 || canNang_kg <= 0) {
+                ketQuaElement.innerHTML = "Lỗi: Vui lòng nhập chiều cao và cân nặng hợp lệ.";
+                return;
+            }
+
+            // 2. Chuyển đổi chiều cao từ cm sang mét
+            let chieuCao_m = chieuCao_cm / 100;
+
+            // 3. Tính toán BMI
+            let bmi = canNang_kg / (chieuCao_m * chieuCao_m);
+            
+            // Làm tròn BMI đến 2 chữ số thập phân
+            let bmiLamTron = bmi.toFixed(2);
+Câu 6. Form Đăng ký đơn giản
+• Yêu cầu: Tạo một form đăng ký gồm các trường Tên đăng nhập, Mật khẩu, Nhập lại
+mật khẩu và nút Đăng ký. Dùng Javascript để kiểm tra các trường không được trống và
+mật khẩu phải kh
+            // 4. Phân loại (Sử dụng IF...ELSE IF...ELSE)
+            if (bmi < 18.5) {
+                phanLoai = "Gầy";
+                thongBao = "Hãy xem xét việc tăng cân.";
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                phanLoai = "Bình thường";
+                thongBao = "Bạn có chỉ số BMI lý tưởng. Rất tốt!";
+            } else if (bmi >= 25 && bmi < 29.9) {
+                phanLoai = "Thừa cân";
+                thongBao = "Cần điều chỉnh chế độ ăn uống và tập luyện.";
+            } else {
+                phanLoai = "Béo phì";
+                thongBao = "Tham khảo ý kiến bác sĩ để có kế hoạch giảm cân.";
+            }
+
+            // 5. Hiển thị kết quả
+            ketQuaElement.innerHTML = `Chỉ số BMI của bạn là: ${bmiLamTron} (${phanLoai}). ${thongBao}`;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html></html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bài Tập JavaScript Cơ Bản</title>
+</head>
+<body>
+
+    <h2>Question 1: Interactive Greeting</h2>
+
+    <p id="greetingText">Noi dung se thay doi o day...</p>
+    <p id="greetingBackground">Noi dung nen se thay doi o day...</p>
+
+    <button onclick="changeTextColor()">doi mau chu
+    </button>
+    <button onclick="changeBackgroundcolor()">doi mau nen
+    </button>
+
+    <script>
+        // 3. Định nghĩa hàm JavaScript
+        function changeTextColor() {
+            // Lệnh cơ bản nhất: Lấy phần tử qua ID và thay đổi nội dung (innerHTML)
+            document.getElementById("greetingText").style.color = "blue";
+        }
+
+        function changeBackgroundcolor() {
+            document.getElementById("greetingBackground").style.background = "Red";
+        }
+    </script>
+
+</body>
+</html>
